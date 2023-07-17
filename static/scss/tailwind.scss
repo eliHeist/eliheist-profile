@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.hamburger-btn{
+    @apply fixed bottom-8 right-8 bg-white overflow-hidden rounded-md border-primary-500;
+    svg{
+        @apply stroke-primary-500 stroke-[10];
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: translate .5s, rotate .5s;
+    }
+    .line{
+        stroke-dasharray: 60 31 60 300;
+        transition: .5s;
+    }
+    &[aria-expanded="true"] .hamburger{
+        translate: 2px -3px;
+        rotate: .125turn;
+    }
+    &[aria-expanded="true"] .line{
+        stroke-dasharray: 60 105 60 300;
+        stroke-dashoffset: -90;
+    }
+}
+
+.section-header{
+    @apply text-4xl font-semibold mb-8;
+}
+
+.home-card{
+    @apply bg-grey-900 p-8 rounded-md;
+    h3{
+        @apply text-2xl font-semibold;
+    }
+    p{
+        @apply font-light my-2;
+    }
+    a{
+        i{
+            @apply text-white mr-1;
+        }
+        @apply text-primary-500 uppercase hover:text-red-600 font-semibold; 
+    }
+    &.highlight{
+        @apply bg-primary-500;
+        a{@apply text-white;}
+    }
+}
+
+.project-card{
+    @apply grid;
+    figure{
+        @apply aspect-square bg-grey-900 grid place-content-center p-4;
+    }
+    h3{
+        @apply  text-2xl mt-4;
+    }
+    a{
+        i{
+            @apply text-white mr-1;
+        }
+        @apply text-primary-500 uppercase hover:text-red-600 font-semibold; 
+    }
+}
+
+.project-card-extended{
+    
+}
+
+form.contact-form{
+    @apply w-full grid accent-primary-500 px-2;
+    p{
+        @apply py-3 grid gap-2;
+
+        label{
+            @apply font-semibold text-sm;    
+        }
+        input, textarea, select{
+            @apply bg-primary-900 bg-blend-lighten outline outline-grey-800 outline-1 rounded-md focus-visible:outline-primary-500 p-2;
+        }
+    }
+}
+
+.bg-prima-500 {
+    background-color: rgb(27, 26, 26);
+    color: rgb(22, 22, 22);
+}

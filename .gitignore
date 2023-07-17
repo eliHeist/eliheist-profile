@@ -1,0 +1,13 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+media
+staticfiles
+.idea/
+venv/ 
+.env
+**/bootstrap**/*
+db.sqlite3
+node_modules/

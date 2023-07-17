@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
+<main>
+    <!-- banner -->
+    <section id="banner" class="py-12">
+        <div class="container mx-auto px-2">
+            <div class="grid gap-8 sm:grid-cols-3">
+                <div class=" sm:col-span-1">
+                    <img src="{% static 'img/pic.png' %}" alt="me">
+                </div>
+                <div class="sm:col-span-2 grid content-center">
+                    <h2 class="font-semibold text-primary-500">Hi, I'm Elijah</h2>
+                    <h3 class="text-5xl font-light">I make great Web Applications</h3>
+                    <p class=" font-light text-red-100 text-lg py-4">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos unde deserunt nostrum magni dignissimos sapiente, mollitia deleniti ipsam iusto atque?
+                    </p>
+                    <a href="{% url 'projects:project-list' %}" class="px-4 py-2 bg-primary-500 rounded-lg w-fit">View my Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- service cards -->
+    <section id="service-cards" class="py-12">
+        <div class="container mx-auto px-2">
+            <header class="section-header">
+                <h2>What I Do.</h2>
+            </header>
+            <div class="grid gap-4 md:grid-cols-3">
+                <article class="home-card">
+                    <h3 class="title">UI Design</h3>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, dolor!
+                    </p>
+                    <a href="./"><i class="fas fa-eye"></i> Know More</a>
+                </article>
+                <article class="home-card highlight">
+                    <h3 class="title">Backend Development</h3>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, dolor!
+                    </p>
+                    <a href="./"><i class="fas fa-eye"></i> Know More</a>
+                </article>
+                <article class="home-card">
+                    <h3 class="title">Web Deployment</h3>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, dolor!
+                    </p>
+                    <a href="./"><i class="fas fa-eye"></i> Know More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- featured projects -->
+    <section id="featured-projects" class="py-12">
+        <div class="container mx-auto px-2">
+            <header class="section-header">
+                <h2>My Projects.</h2>
+            </header>
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                
+                {% for hp in projects %}
+                <article class="project-card">
+                    <figure class="img-control">
+                        <img class="img-fluid" src="{{ hp.project.thumbnail.url }}" alt="{{ hp.project.name }}">
+                    </figure>
+                    <div class="info">
+                        <h3>{{ hp.project.name }}</h3>
+                        <a href="{% url 'projects:project-detail' hp.project.pk %}"><i class="fas fa-eye"></i> Know
+                            more</a>
+                    </div>
+                </article>
+                {% endfor %}
+                    
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+    

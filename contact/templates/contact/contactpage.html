@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% load static tailwind_filters %}
+
+{% block content %}
+<main class="pb-8 overflow-hidden scroll-smooth">
+    <div class="relative">
+        <figure>
+            <img src="{% static 'img/call image.jpg' %}" class="object-cover aspect-[2.5/3] sm:aspect-square md:aspect-1610 object-right lg:aspect-video xl:aspect-[16/8]">
+        </figure>
+        <div class="absolute top-0 left-0 right-0 bottom-0">
+            <div class="container mx-auto h-full grid content-end md:content-center relative">
+                <div class="grid my-auto">
+                    <div class="list">
+                        <ol class="grid gap-3 lg:gap-8 text-xl max-w-lg md:max-w-none mx-auto mb-8">
+                            <li>
+                                <a href="mailto:elijahtriumph@outlook.com" class="grid grid-flow-row lg:grid-flow-col w-fit lg:content-center lg:gap-4">
+                                    <i class="fas fa-envelope-open text-6xl mr-2 rotate-12 mb-[-1rem] lg:mb-0"></i>
+                                    <span class="grid content-center">elijahtriumph@outlook.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+256705063168" class="grid grid-flow-row lg:grid-flow-col w-fit lg:content-center lg:gap-4">
+                                    <i class="fas fa-phone text-6xl mr-2 mb-4 lg:mb-0"></i>
+                                    <span class="grid content-center">+256 705 063 168</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="#form" class="px-4 py-2 rounded-lg outline-grey-900 outline lg:grid place-content-center text-center w-fit absolute bottom-16 left-1/2 -translate-x-1/2 hidden">
+                    <span>Send a message</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="form" class="container px-2 mx-auto py-16">
+            <div class="md:hidden">
+                
+                <p class="max-w-lg mx-auto text-xl text-white font-medium">
+                    Hit me up using the details above
+                    <br><br>
+                    Or......
+                </p>
+            </div>
+            <p class="max-w-lg mx-auto text-xl text-white font-medium bg-primary-500 px-2 mt-4">
+                Lets engage.
+            </p>
+            <form method="POST" class="contact-form bg-dark mx-auto max-w-lg rounded-lg">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="py-2 px-4 bg-primary-500 rounded-md mt-8">
+                    <i class="fas fa-envelope-open-text mr-2"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock content %}
+
