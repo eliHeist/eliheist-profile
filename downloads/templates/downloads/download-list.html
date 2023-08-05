@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="container mx-auto py-36">
+        <div class="flex justify-end mb-8 p-2">
+            <a href="{% url 'downloads:create' %}" class="inline-block rounded-md outline outline-1 outline-grey-400 px-8 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-grey-800"><i class="fas fa-cloud-arrow-up mr-4"></i>Upload a file</a>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {% for file in downloads %}
+            <div class="w-full overflow-hidden rounded-lg bg-grey-900 shadow-md duration-300 hover:scale-105 hover:shadow-xl">
+                <p xmlns="http://www.w3.org/2000/svg" class="mt-4 mx-4 text-green-400">
+                    {% if file.is_image %}
+                        <img src="{{ file.file.url }}" class="w-full h-full object-contain">
+                    {% else %}
+                        <i class="fas fa-file"></i>
+                    {% endif %}
+                </p>
+                <h3 class="mt-2 text-center text-2xl font-bold text-gray-500">{{ file.name }}</h3>
+                <p class="my-4 text-center text-sm text-gray-500"></p>
+                <div class="space-x-4 bg-grey-900 py-4 text-center">
+                    <button
+                        class="inline-block rounded-md outline outline-1 outline-grey-400 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-grey-800">
+                        <a href="#">Delete</a>
+                    </button>
+                    <button
+                        class="inline-block rounded-md bg-primary-500 px-6 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-primary-400">
+                        <a href="{{ file.file.url }}" download>Download</a>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -88,3 +88,7 @@ form.contact-form{
     background-color: rgb(27, 26, 26);
     color: rgb(22, 22, 22);
 }
+
+input{
+    @apply text-dark;
+}

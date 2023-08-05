@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static tailwind_filters %}
+
+{% block content %}
+<section class="py-36">
+    <div class="container mx-auto">
+        <div class="flex justify-end mb-8 p-2">
+            <a href="{% url 'downloads:list' %}" class="inline-block rounded-md outline outline-1 outline-grey-400 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-grey-800"><i class="fas fa-list mr-4"></i>File list</a>
+        </div>
+        <form method="post" class="max-w-2xl mx-auto grid gap-4" enctype="multipart/form-data">
+            <h2 class="font-bold text-2xl text-primary-500 pb-8">Update file below</h2>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button
+                class="inline-block rounded-md bg-amber-500 px-6 py-2 font-semibold text-amber-100 shadow-md duration-75 hover:bg-amber-400">
+                Update File
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

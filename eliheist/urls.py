@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('frontend.urls', namespace='frontend')),
     path('projects/', include('projects.urls', namespace='projects')),
     path('contact/', include('contact.urls', namespace='contact')),
+    path('downloads/', include('downloads.urls', namespace='downloads')),
 ]
 
 if settings.DEBUG:
