@@ -23,7 +23,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        poppins: ['poppins']
+        poppins: ["'Poppins', sans-serif"]
       },
       aspectRatio: {
         surface: "4 / 3",
